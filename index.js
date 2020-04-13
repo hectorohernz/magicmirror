@@ -89,4 +89,53 @@ function dayRefresh(){
 showCurrentTime();
 showDayOfTheWeek();
 showMonth();
-setInterval(dayRefresh,10000)
+setInterval(dayRefresh,10000);
+
+// Weather Api Load on Screen
+window.addEventListener("load", () => {
+    let long, lat;
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition( position => {
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
+            const api = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${long}&key=a4087264ee8b438d91cf72bc5e2b9dcf`;
+            fetch(api)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                const apiLog = data.data[0];
+                const location = apiLog.city_name;
+                const stateLetters = apiLog.state_code;
+                let temp = apiLog.temp;
+                const weatherDescription = apiLog.weather.description;
+                temp = converstionToF(temp);
+                console.log(temp,location,stateLetters,weatherDescription);
+            });
+     
+        });
+    } 
+    // Function For Conversion Of C To F Weather
+    var converstionToF = deg => Math.round((deg * 9/5) + 32 - 4);
+
+    // Function For Setting Dom according to Weather
+    
+    var weatherUi = (degree, city, image, state, description) => {
+        // Dom Interaction Variables 
+        degreeHtml = document.getElementById("indexclimate");
+        cityHtml = document.getElementById("indexcity");
+        image = document.getElementById("indexweatherimg");
+        descriptionHtml = document.getElementById("index-weather-title");
+        degree = null;
+        city = null;
+        image = null;
+        state = null;
+        description = null;
+        
+        cityHtml.innerText = `${city}, ${state}`;
+
+        if()
+        
+
+    };
+});
