@@ -16,6 +16,47 @@ main{
     grid-template-columns: repeat(10, 1fr);
 }
 
+
+#home-page{
+    height: 100vh;
+    background-image: url('assets/sigin-in-wallpaper.gif');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:1.0;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+}
+.form{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    width: 100%;
+    grid-row: 3/ span 6;
+    grid-column: 2/ span 8;
+    color: black;
+    text-align: center;
+}
+.form p{
+    font-size: 12px;
+    font-weight: 700;
+}
+#form-logo{
+    font-size: 70px;
+    letter-spacing: 12px;
+    margin: 25px 0px;
+}
+#form-btn{
+    background: black;
+    color: white;
+    height: 40px;
+    width: 100px;
+    font-size: 18px;
+    border-radius: 25px;
+    align-content: center;
+    margin: 120px 0px;
+}
+
 .daily-date-con{
     padding: 5px;
     display: flex;
@@ -56,3 +97,37 @@ main{
     margin-right: 15px;
     filter: invert(100%); 
 }
+.content-ui{
+    grid-row: 4/ span 4;
+    grid-column: 1/ span 10;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#content-ui-image{
+    height:250px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
+.nav{
+    grid-row: 10;
+    grid-column: 1 / span 10;
+    background: rgb(128, 158, 240);
+}
+.hidden{
+    display: none;
+}
+/* fade in */ 
+.fade-in{
+    animation: fadeIn ease 6s;
+}
+@keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  

@@ -157,3 +157,13 @@ window.addEventListener("load", () => {
        }
     };
 });
+// Variables
+let enterBtn = document.getElementById("form-btn");
+enterBtn.addEventListener("click", () =>{
+    let homePage = document.getElementById("home-page");
+    let indexPage = document.getElementById("index-page")
+   homePage.style.display = "none"
+   indexPage.classList.remove("hidden");
+   indexPage.classList.add("fade-in")
+});
+
