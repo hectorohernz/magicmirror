@@ -108,34 +108,52 @@ window.addEventListener("load", () => {
                 const location = apiLog.city_name;
                 const stateLetters = apiLog.state_code;
                 let temp = apiLog.temp;
-                const weatherDescription = apiLog.weather.description;
+                const weatherCode = Number(apiLog.weather.code)
                 temp = converstionToF(temp);
-                console.log(temp,location,stateLetters,weatherDescription);
+                weatherUi(temp,location, stateLetters, weatherCode);
             });
      
         });
     } 
     // Function For Conversion Of C To F Weather
-    var converstionToF = deg => Math.round((deg * 9/5) + 32 - 4);
-
+    var converstionToF = deg => Math.round((deg * 9/5) + 32 - 1);
     // Function For Setting Dom according to Weather
-    
-    var weatherUi = (degree, city, image, state, description) => {
+    var weatherUi = (degree, city, state, code) => {
         // Dom Interaction Variables 
         degreeHtml = document.getElementById("indexclimate");
         cityHtml = document.getElementById("indexcity");
         image = document.getElementById("indexweatherimg");
         descriptionHtml = document.getElementById("index-weather-title");
-        degree = null;
-        city = null;
-        image = null;
-        state = null;
-        description = null;
-        
         cityHtml.innerText = `${city}, ${state}`;
+        degreeHtml.innerText = `${degree} F`;
 
-        if()
-        
+       if(code >= 200 && code <= 233){ // ThunderStorms Status
+        image.src = "assets/rain.png";
+        descriptionHtml.innerText = "Thunderstorms";
 
+       } else if(code >= 300 && code <= 522){ // Rain 
+        image.src = "assets/rain.png";
+        descriptionHtml.innerText = "Raining";
+
+       } else if(code >= 600 && code <= 623){ // Snow 
+        image.src = "assets/snow.png";
+        descriptionHtml.innerText = "Cloudly";
+
+       } else if (code >= 711 && code <= 751){ // Fog 
+        image.src = "assets/cloudy.png";
+        descriptionHtml.innerText = "Foggy";
+
+       } else if (code >= 801 && code <= 804){  // Clouds
+        image.src = "assets/cloudy.png";
+        descriptionHtml.innerText = "Cloudy";
+
+       } else if (code === 800){ // Sunny
+        image.src = "assets/clear-day-sun.png";
+        descriptionHtml.innerText = "Sunny";
+
+       } else{ // Not currenlty Working 
+        image.src = "assets/clear-night.png";
+        descriptionHtml.innerText = "ERROR 401";
+       }
     };
 });
