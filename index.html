@@ -7,13 +7,30 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+    <!--
+        Start Of Sign In 
+    -->
     <section id="home-page">
+        <div class="error hidden">
+            <h4>Please Enter First and Last Name</h4>
+        </div>
         <div class="form">
             <h1 id="form-logo">KIN</h1>
-            <button type="button" id="form-btn">Enter Kin</button>
+            <form name="sign-in-form">
+                <label for="fname">First name</label>
+                <input type="text" id="fname" class="formstyle" name="fname">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" class="formstyle" name="lname">
+            </form>
+            <button type="button" id="form-btn">Sign Up</button>
             <p>Hector Hernandez Production</p>
         </div>
     </section>
+    <!--
+
+        Start Of Home Page 
+
+    -->
     <main id="index-page" class="hidden">
         <section class="top-header">
             <div class="daily-date-con">
@@ -30,12 +47,17 @@
             </div>
             <h3 id="index-weather-title">It's Sunny!</h3>
         </section>
-
+        <section class="user-prompt">
+            <h2 id="user-prompt">Welcome, Hector Hernandez</h2>
+        </section>
         <section class="content-ui">
             <img src="assets/image-placeholder-500x500.jpg" alt="placeholder" id="content-ui-image">
             <h1 id="content-ui-heading">Placeholder</h1>
         </section>
 
+        <!---
+            Nav Bar For Moblie App
+        -->
         <nav class="nav">
            <button type="button"></button>
         </nav>

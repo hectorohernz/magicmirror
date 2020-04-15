@@ -1,13 +1,41 @@
+let enterBtn = document.getElementById("form-btn");
+let firstNameValdiation = document.getElementById("fname");
+let secondNameValdiation = document.getElementById("lname");
+
+enterBtn.addEventListener("click", () => {
+    let firstName = firstNameValdiation.value;
+    let secondName = secondNameValdiation.value;
+
+    if(firstName == "" || secondName == ""){
+        let errorPopUp = document.querySelector(".error");
+        errorPopUp.classList.remove("hidden");
+    } else {
+        let homePage = document.getElementById("home-page");
+        let indexPage = document.getElementById("index-page")
+        homePage.style.display = "none"
+        indexPage.classList.remove("hidden");
+        indexPage.classList.add("fade-in")
+        userPromptMessage();
+    }
+});
+
+// Sign - in function valdition 
+var userPromptMessage = function(){
+    let firstName = firstNameValdiation.value;
+    let secondName = secondNameValdiation.value;
+    console.log(firstNameValdiation);
+    let userPromptHtml = document.getElementById("user-prompt");
+    userPromptHtml.innerText = `Welcome, ${firstName} ${secondName}`;
+}
+
 
 var showCurrentTime = function(){
     var noon = 12;
     var time = document.getElementById("indextime");
-
     var currentTime = new Date();
     var hours = currentTime.getHours();
     var minutes = currentTime.getMinutes();
     var meridian = "am";
-
     if(hours >= noon){
         meridian = "pm";
     }
@@ -91,6 +119,7 @@ showDayOfTheWeek();
 showMonth();
 setInterval(dayRefresh,10000);
 
+
 // Weather Api Load on Screen
 window.addEventListener("load", () => {
     let long, lat;
@@ -158,12 +187,3 @@ window.addEventListener("load", () => {
     };
 });
 // Variables
-let enterBtn = document.getElementById("form-btn");
-enterBtn.addEventListener("click", () =>{
-    let homePage = document.getElementById("home-page");
-    let indexPage = document.getElementById("index-page")
-   homePage.style.display = "none"
-   indexPage.classList.remove("hidden");
-   indexPage.classList.add("fade-in")
-});
-
