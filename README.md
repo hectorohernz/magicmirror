@@ -2,7 +2,7 @@
 
 Magic Mirror is an application created to help you know the current weather and time without having to look at different websites, or applications. It's a convenient dashboard that has a multi-purpose functionality. Magic Mirror was created with the help of different API, which helps with a detailed weather forecast. 
 
-This is the my offical Magic Mirror Website [Website](https://hectorohernz.github.io/magicmirror/)
+This is the my offical Magic Mirror Website https://hectorohernz.github.io/magicmirror/
 
 ## Cloning the Magic Mirror Example Project
 
